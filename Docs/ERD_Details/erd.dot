@@ -1,1 +1,48 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="transparent", pad=0.25, nodesep=0.55, ranksep=0.8];
+  node [shape=plain, fontname="Arial"];
+  edge [fontname="Arial", color="#5B6573", penwidth=1.4];
 
+  student [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#2563EB"><FONT COLOR="white"><B>STUDENT_DETAILS</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT"><B>PK  Student_ID</B></TD></TR>
+      <TR><TD ALIGN="LEFT">Age</TD></TR>
+      <TR><TD ALIGN="LEFT">Gender</TD></TR>
+      <TR><TD ALIGN="LEFT">Academic_Level</TD></TR>
+      <TR><TD ALIGN="LEFT">Country</TD></TR>
+      <TR><TD ALIGN="LEFT">Sleep_Hours_Per_Night</TD></TR>
+      <TR><TD ALIGN="LEFT">Mental_Health_Score</TD></TR>
+      <TR><TD ALIGN="LEFT">Relationship_Status</TD></TR>
+      <TR><TD ALIGN="LEFT">Conflicts_Over_Social_Media</TD></TR>
+      <TR><TD ALIGN="LEFT">Addicted_Score</TD></TR>
+      <TR><TD ALIGN="LEFT"><I>Health_Band</I></TD></TR>
+      <TR><TD ALIGN="LEFT"><I>Conflict_Level</I></TD></TR>
+    </TABLE>
+  >];
+
+  platform [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#0F766E"><FONT COLOR="white"><B>PLATFORM_DETAILS</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT"><B>PK/FK  Student_ID</B></TD></TR>
+      <TR><TD ALIGN="LEFT">Avg_Daily_Usage_Hours</TD></TR>
+      <TR><TD ALIGN="LEFT">Most_Used_Platform</TD></TR>
+      <TR><TD ALIGN="LEFT">Affects_Academic_Performance</TD></TR>
+    </TABLE>
+  >];
+
+  date [label=<
+    <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="6">
+      <TR><TD BGCOLOR="#7C3AED"><FONT COLOR="white"><B>DATE_TABLE</B></FONT></TD></TR>
+      <TR><TD ALIGN="LEFT"><B>PK  Date</B></TD></TR>
+      <TR><TD ALIGN="LEFT">Year</TD></TR>
+      <TR><TD ALIGN="LEFT">Month</TD></TR>
+      <TR><TD ALIGN="LEFT">Month_Name</TD></TR>
+      <TR><TD ALIGN="LEFT">Quarter</TD></TR>
+      <TR><TD ALIGN="LEFT">Month_Number</TD></TR>
+    </TABLE>
+  >];
+
+  student -> platform [label="  Student_ID  1:1" dir=both arrowtail=none arrowhead=none];
+  date -> student [style=dashed, label="  optional time dimension" dir=both arrowhead=none arrowtail=none];
+}
