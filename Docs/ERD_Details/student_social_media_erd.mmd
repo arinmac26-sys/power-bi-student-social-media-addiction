@@ -1,0 +1,32 @@
+erDiagram
+    STUDENT_DETAILS ||--|| PLATFORM_DETAILS : "Student_ID"
+    STUDENT_DETAILS {
+        int Student_ID PK
+        int Age
+        string Gender
+        string Academic_Level
+        string Country
+        decimal Sleep_Hours_Per_Night
+        int Mental_Health_Score
+        string Relationship_Status
+        int Conflicts_Over_Social_Media
+        int Addicted_Score
+        string Health_Band "calculated column"
+        string Conflict_Level "calculated column"
+    }
+
+    PLATFORM_DETAILS {
+        int Student_ID PK, FK
+        decimal Avg_Daily_Usage_Hours
+        string Most_Used_Platform
+        string Affects_Academic_Performance
+    }
+
+    DATE_TABLE {
+        date Date PK
+        int Year
+        int Month
+        string Month_Name
+        int Quarter
+        int Month_Number
+    }
